@@ -72,20 +72,20 @@ public class ImplementsWeather {
     public void checkIf2DaysWithoutSun(WebDriver driver) {
         String resultMatric = driver.findElement(By.xpath(WeatherLocators.WEATHER_DESCRIPTION_1
                 +"1"+WeatherLocators.WEATHER_DESCRIPTION_2)).getText();
-        boolean below= true;
+        boolean sunny= true;
 
         for (int i=2; i<13;i++) {
             if (!resultMatric.equals(WeatherLocators.SUN)) {
                 if(!driver.findElement(By.xpath(WeatherLocators.WEATHER_DESCRIPTION_1
                         +(i+1)+ WeatherLocators.WEATHER_DESCRIPTION_2)).getText().equals(WeatherLocators.SUN)){
-                    below = false;
+                    sunny = false;
                     break;
                 }
             }
             resultMatric = driver.findElement(By.xpath(WeatherLocators.WEATHER_DESCRIPTION_1
                     +i+ WeatherLocators.WEATHER_DESCRIPTION_2)).getText();
         }
-        Assert.assertTrue("There have been more than two days of non-sunny weather in the past ten days",below);
+        Assert.assertTrue("There have been more than two days of non-sunny weather in the past ten days",sunny);
         System.out.println("Hot weather in last ten days");
     }
 
