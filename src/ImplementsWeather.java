@@ -51,7 +51,7 @@ public class ImplementsWeather {
         boolean below= true;
 
         for (int i=2; i<16;i++){
-           if(accurateResult>=80){
+           if(accurateResult>=60){
                below= false;
                break;
            }
